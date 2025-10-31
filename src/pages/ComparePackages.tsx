@@ -307,7 +307,7 @@ const ComparePackages = () => {
         <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
           Experience the PTRinfraCons difference firsthand. Our team is ready to show you around.
         </p>
-        <Link to="/bookconsultation">
+        <Link to="/enquire">
           <Button
             variant="outline"
             size="lg"

@@ -13,7 +13,10 @@ import ComparePackageDetails from "./pages/ConstructionPackages";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Enquire from "./pages/EnquireNow";
-
+import Hyderabad from "./components/Hyderbad";
+import Bangalore from "./components/Bengalore"
+import HyderabadConstruction from "./components/Hyderbad";
+import BangaloreConstruction from "./components/Bengalore";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -34,6 +37,8 @@ const App = () => (
           <Route path="/compare/:id" element={<ComparePackageDetails />} />
           <Route path="/enquire" element={<Enquire />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/Hyderabad" element={<HyderabadConstruction />} />
+          <Route path="/Bangalore" element={<BangaloreConstruction />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Youtube, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import logonew from "@/assets/logonew.png";
+import logoimg from "@/assets/logoimg.png";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Link to="/" className="flex items-center space-x-2">
-                <img src={logonew} alt="PTRinfraCons" className="h-32 w-auto hover:opacity-90 transition-opacity" />
+                <img src={logoimg} alt="PTRinfraCons" className="h-32 w-auto hover:opacity-90 transition-opacity" />
               </Link>
             </div>
             <p className="text-background/80 mb-4">

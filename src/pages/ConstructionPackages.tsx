@@ -138,6 +138,7 @@ const ConstructionPackages = () => {
           onChange={(e) => setLocation(e.target.value)}
           className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500"
         >
+          <option>Bangaluru</option>
           <option>Hyderabad</option>
           <option>Vijayawada</option>
           <option>Visakhapatnam</option>
