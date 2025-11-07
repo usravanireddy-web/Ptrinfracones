@@ -193,8 +193,6 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

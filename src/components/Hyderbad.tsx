@@ -8,15 +8,15 @@ import banner from "@/assets/banner.png";
 import customer1 from "@/assets/customer1.png";
 import customer2 from "@/assets/customer2.png";
 import customer3 from "@/assets/customer3.png";
-import building1 from "@/assets/building1.webp";
-import building2 from "@/assets/building2.webp";
-import building3 from "@/assets/building3.webp";
-import how1 from "@/assets/how1.webp";
-import how2 from "@/assets/how2.webp";
+import building1 from "@/assets/building1.png";
+import buildings2 from "@/assets/buildings2.png";
+import building3 from "@/assets/building3.png";
+import how1 from "@/assets/how1.png";
+import how2 from "@/assets/how2.png";
 import how3 from "@/assets/how3.png";
 import how4 from "@/assets/how4.png";
 import how5 from "@/assets/how5.png";
-import how6 from "@/assets/how6.webp";
+import how6 from "@/assets/how6.png";
 
 const HyderabadConstruction: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -65,7 +65,7 @@ const HyderabadConstruction: React.FC = () => {
 
   const projects = [
     { title: "Comfort Meets Class", img: building1, code: "CRN-43891" },
-    { title: "Modern Design, Homely Feel", img: building2, code: "CRN-58026" },
+    { title: "Modern Design, Homely Feel", img: buildings2, code: "CRN-58026" },
     { title: "Elegant Outside, Warm Inside", img: building3, code: "CRN-38245" },
   ];
 
@@ -259,8 +259,6 @@ const HyderabadConstruction: React.FC = () => {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <Footer />
     </div>
   );
 };

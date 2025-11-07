@@ -11,9 +11,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -23,6 +21,8 @@ const Navbar = () => {
     { name: "Projects", path: "/projects" },
     { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "How It Works", path: "/how-it-works" },
+    { name: "CommercialPage", path: "/commercialPage" },
   ];
 
   const locationOptions = [
@@ -43,18 +43,23 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* LEFT SECTION: Logo + Location Dropdown */}
-          <div className="flex items-center space-x-8">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+          {/* LEFT SECTION: Logo + Brand */}
+          <div className="flex items-center space-x-4">
+            <Link to="/" className="flex items-center space-x-2">
               <img
                 src={logoimg}
-                alt="PTRinfraCons"
-                className="h-20 w-auto object-contain"
+                alt="PTRinfraCons Logo"
+                className="h-16 w-auto object-contain"
               />
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent tracking-tight">
+                PTR infraCons
+              </span>
             </Link>
+          </div>
 
-            {/* Location Dropdown */}
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden md:flex items-center space-x-10">
+            {/* Locations Dropdown */}
             <div
               className="relative group"
               onMouseEnter={() => setIsLocationOpen(true)}
@@ -65,7 +70,6 @@ const Navbar = () => {
                 <ChevronDown className="w-4 h-4 mt-[2px]" />
               </div>
 
-              {/* Dropdown Menu */}
               <div
                 className={`absolute top-full left-0 mt-2 w-44 bg-[#1a1a1a]/95 backdrop-blur-lg border border-white/10 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 origin-top ${
                   isLocationOpen
@@ -84,10 +88,7 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* DESKTOP NAVIGATION */}
-          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -120,26 +121,11 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* MOBILE NAVIGATION */}
+        {/* ===== MOBILE NAVIGATION ===== */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 bg-[#1a1a1a]/95 rounded-lg shadow-lg px-4 mt-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`block py-2 text-sm font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? "text-[#FFD700]"
-                    : "text-gray-300 hover:text-[#FFD700]"
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            {/* Mobile Dropdown */}
-            <div className="border-t border-white/10 pt-2">
+          <div className="md:hidden py-4 space-y-4 bg-[#1a1a1a]/95 rounded-lg shadow-lg px-4 mt-2">
+            {/* Move Locations Below Logo for Clarity */}
+            <div className="border-b border-white/10 pb-2">
               <div
                 className="flex justify-between items-center text-gray-300 py-2 cursor-pointer hover:text-[#FFD700]"
                 onClick={() => setIsLocationOpen(!isLocationOpen)}
@@ -168,10 +154,29 @@ const Navbar = () => {
               )}
             </div>
 
+            {/* Navigation Links */}
+            <div className="space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`block py-2 text-sm font-medium transition-colors ${
+                    location.pathname === link.path
+                      ? "text-[#FFD700]"
+                      : "text-gray-300 hover:text-[#FFD700]"
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Enquire Button */}
             <Button
               variant="secondary"
               size="sm"
-              className="w-full bg-[#FFD700] hover:bg-[#ffcc33] text-black font-semibold"
+              className="w-full bg-[#FFD700] hover:bg-[#ffcc33] text-black font-semibold mt-3"
             >
               <Link to="/enquire">Enquire Now</Link>
             </Button>

@@ -21,8 +21,10 @@ const Button: React.FC<ButtonProps> = ({
     "inline-flex items-center justify-center rounded-md font-semibold focus:outline-none transition-all";
   const variants: Record<string, string> = {
     primary: "bg-red-500 text-white hover:bg-red-600",
-    outline: "bg-card text-foreground hover:bg-card/90 border",
-    secondary: "bg-yellow-400 text-red-700 hover:bg-yellow-500",
+    outline:
+      "bg-transparent text-white border border-white hover:bg-white hover:text-[#0F1A2C]",
+    secondary:
+      "bg-yellow-400 text-black hover:bg-yellow-500 hover:shadow-lg hover:scale-[1.03]",
   };
   const sizes: Record<string, string> = {
     lg: "px-6 py-3 text-lg",
@@ -190,7 +192,7 @@ const ComparePackages = () => {
   const renderTable = (packages, features) => (
     <div className="overflow-x-auto shadow-lg rounded-2xl border border-yellow-300 bg-white mt-8">
       <table className="min-w-full text-sm">
-        <thead className="bg-gradient-to-r from-yellow-400 to-red-500 text-white">
+        <thead className="bg-gradient-to-r from-yellow-400 to-blue-400 text-white">
           <tr>
             <th className="p-4 text-left font-semibold">Features</th>
             {packages.map((pkg) => (
@@ -205,7 +207,10 @@ const ComparePackages = () => {
           {Object.keys(features).map((section) => (
             <React.Fragment key={section}>
               <tr className="bg-yellow-100">
-                <td className="p-3 font-bold text-red-700" colSpan={packages.length + 1}>
+                <td
+                  className="p-3 font-bold text-blue-800"
+                  colSpan={packages.length + 1}
+                >
                   {section}
                 </td>
               </tr>
@@ -230,15 +235,18 @@ const ComparePackages = () => {
     <div className="min-h-screen bg-yellow-50 text-gray-800">
       <Navbar />
 
-      {/* Header Section with Better Spacing */}
+      {/* Header */}
       <div className="max-w-7xl mx-auto text-center pt-20 pb-8">
-        <h1 className="text-5xl font-bold text-red-600 mb-4">Compare Packages</h1>
+        <h1 className="text-5xl font-bold text-blue-800 mb-4">
+          Compare Packages
+        </h1>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-          Explore and compare our Home and Luxury Home packages to find the perfect fit for your dream home.
+          Explore and compare our Home and Luxury Home packages to find the
+          perfect fit for your dream home.
         </p>
       </div>
 
-      {/* Location + Tabs */}
+      {/* Tabs Section */}
       <div className="flex justify-center items-center space-x-6 mb-10">
         <div className="relative">
           <Button
@@ -271,8 +279,8 @@ const ComparePackages = () => {
           onClick={() => setActiveTab("homes")}
           className={`px-8 py-2 rounded-full font-semibold border-2 transition ${
             activeTab === "homes"
-              ? "bg-red-500 border-red-500 text-white shadow-lg"
-              : "border-yellow-400 text-red-600 bg-yellow-100 hover:bg-yellow-200"
+              ? "bg-blue-500 border-blue-500 text-white shadow-lg"
+              : "border-yellow-400 text-blue-700 bg-yellow-100 hover:bg-yellow-200"
           }`}
         >
           Homes
@@ -281,8 +289,8 @@ const ComparePackages = () => {
           onClick={() => setActiveTab("luxury")}
           className={`px-8 py-2 rounded-full font-semibold border-2 transition ${
             activeTab === "luxury"
-              ? "bg-red-500 border-red-500 text-white shadow-lg"
-              : "border-yellow-400 text-red-600 bg-yellow-100 hover:bg-yellow-200"
+              ? "bg-blue-500 border-blue-500 text-white shadow-lg"
+              : "border-yellow-400 text-blue-700 bg-yellow-100 hover:bg-yellow-200"
           }`}
         >
           Luxury Homes
@@ -296,31 +304,32 @@ const ComparePackages = () => {
           : renderTable(luxury, luxuryFeatures)}
       </div>
 
-      {/* Footer Section */}
-      <div className="text-center mt-10 text-sm text-gray-600 px-4">
-        <p>*All fittings can be customized at additional cost. Contact us for complete details.</p>
-      </div>
+      {/* ✅ Updated CTA Section */}
+      <section className="relative w-full mt-16 bg-gradient-to-r from-[#B3E5FC] via-[#81D4FA] to-[#FFD700] text-[#0F1A2C] text-center py-16 shadow-2xl">
+        <div className="relative z-10 px-6 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">
+            Schedule a Site Visit Today
+          </h2>
+          <p className="text-base md:text-lg mb-8 opacity-90 leading-relaxed">
+            Discover why{" "}
+            <span className="font-bold text-blue-800">PTRinfraCons</span> is
+            where luxury meets trust. Our dedicated team is ready to guide you
+            through your dream home experience.
+          </p>
 
-      {/* CTA */}
-      <section className="section-padding bg-gradient-to-r from-red-500 to-yellow-400 text-white text-center py-16 mt-12 rounded-2xl mx-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Schedule a Site Visit Today</h2>
-        <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-          Experience the PTRinfraCons difference firsthand. Our team is ready to show you around.
-        </p>
-        <Link to="/enquire">
-          <Button
-            variant="outline"
-            size="lg"
-            className="bg-white text-red-600 hover:bg-yellow-100 border-0 shadow-lg"
-          >
-            Book a Visit
-          </Button>
-        </Link>
+          <Link to="/enquire">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="bg-[#FFD700] text-blue-900 font-semibold hover:bg-[#FFEB3B] hover:text-black border-0 shadow-lg px-8 py-3 rounded-full text-base md:text-lg transition-transform hover:scale-105 hover:shadow-yellow-400/50"
+            >
+              Book a Visit
+            </Button>
+          </Link>
+        </div>
       </section>
 
-      <Footer />
-
-      {/* Floating Button */}
+      {/* Floating Enquire Button */}
       <div className="fixed bottom-6 right-6 z-40">
         <Button
           variant="secondary"
@@ -330,6 +339,7 @@ const ComparePackages = () => {
           <Link to="/enquire">Enquire Now</Link>
         </Button>
       </div>
+
     </div>
   );
 };

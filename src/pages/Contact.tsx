@@ -215,8 +215,6 @@ const Contact = () => {
           title="Office Location"
         />
       </section>
-
-      <Footer />
     </div>
   );
 };

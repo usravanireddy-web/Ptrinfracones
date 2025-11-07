@@ -233,14 +233,6 @@ const ConstructionPackages = () => {
         ))}
       </div>
 
-      {/* <div className="text-center mt-8">
-        <button
-          onClick={() => navigate("/compare")}
-          className="text-orange-600 font-semibold underline hover:text-orange-800"
-        >
-          Compare Packages
-        </button>
-      </div> */}
     </div>
   );
 };

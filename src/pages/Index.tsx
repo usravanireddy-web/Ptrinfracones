@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SearchBar from "@/components/SearchBar";
 import ProjectCard from "@/components/ProjectCard";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import lifestyleImage from "@/assets/lifestyle.jpg";
@@ -60,7 +58,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      {/* <SearchBar /> */}
 
       {/* Featured Projects */}
       <section className="section-padding">
@@ -70,7 +67,8 @@ const Index = () => {
               Our Projects
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Discover our carefully crafted residential projects designed for modern living
+              Discover our carefully crafted residential projects designed for
+              modern living.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -82,9 +80,7 @@ const Index = () => {
       </section>
 
       {/* Amenities & Lifestyle */}
-      <div>
-        <ConstructionPackages />
-      </div>
+      <ConstructionPackages />
       <section className="section-padding bg-accent/30">
         <div className="container px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -93,8 +89,9 @@ const Index = () => {
                 Amenities & Lifestyle
               </h2>
               <p className="text-muted-foreground mb-8 text-lg">
-                Experience a lifestyle that redefines luxury. Our projects come equipped with
-                world-class amenities designed to enhance your everyday living.
+                Experience a lifestyle that redefines luxury. Our projects come
+                equipped with world-class amenities designed to enhance your
+                everyday living.
               </p>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {amenities.map((amenity, index) => (
@@ -138,7 +135,9 @@ const Index = () => {
                 <div className="font-heading text-4xl md:text-5xl font-bold text-gradient mb-2">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
+                <div className="text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -170,43 +169,50 @@ const Index = () => {
                   />
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.location}
+                    </p>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">&ldquo;{testimonial.text}&rdquo;</p>
+                <p className="text-muted-foreground italic">
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-primary to-secondary text-primary-foreground">
-        <div className="container px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
+      {/* ✅ Updated CTA Section (Light Blue + Gold Full Width, Smaller Text + Better Spacing) */}
+      <section className="relative w-full mt-16 bg-gradient-to-r from-[#B3E5FC] via-[#81D4FA] to-[#FFD700] text-[#0F1A2C] text-center py-16 shadow-2xl">
+        <div className="relative z-10 px-6 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-4 animate-fade-in tracking-tight">
             Schedule a Site Visit Today
           </h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in">
-            Experience the PTRinfraCons difference firsthand. Our team is ready to show you around.
+          <p className="text-base md:text-lg mb-8 opacity-90 leading-relaxed animate-fade-in">
+            Discover why{" "}
+            <span className="font-bold text-blue-800">PTRinfraCons</span> is
+            where luxury meets trust. Our dedicated team is ready to guide you
+            through your journey toward your dream home.
           </p>
 
-          {/* ✅ Updated button with Link */}
           <Button
             asChild
-            variant="outline"
             size="lg"
-            className="bg-card text-foreground hover:bg-card/90 border-0 shadow-lg animate-fade-in"
+            className="bg-[#FFD700] text-blue-900 font-semibold hover:bg-[#FFEB3B] hover:text-black border-0 shadow-lg px-8 py-3 rounded-full text-base md:text-lg transition-transform hover:scale-105 hover:shadow-yellow-400/50 animate-fade-in"
           >
             <Link to="/enquire">Book a Visit</Link>
           </Button>
         </div>
       </section>
 
-      <Footer />
-
       {/* Floating Enquiry Button */}
       <div className="fixed bottom-6 right-6 z-40 animate-float">
-        <Button variant="secondary" size="lg" className="shadow-xl rounded-full h-14 px-8">
+        <Button
+          variant="secondary"
+          size="lg"
+          className="shadow-xl rounded-full h-14 px-8"
+        >
           <Link to="/enquire">Enquire Now</Link>
         </Button>
       </div>
