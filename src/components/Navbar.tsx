@@ -26,11 +26,10 @@ const Navbar = () => {
   ];
 
   const locationOptions = [
+    { name: "Proddatur", path: "/Proddatur" },
     { name: "Hyderabad", path: "/Hyderabad" },
     { name: "Bangalore", path: "/Bangalore" },
-    { name: "Chennai", path: "/locations/chennai" },
-    { name: "Karnataka", path: "/locations/karnataka" },
-    { name: "Mumbai", path: "/locations/mumbai" },
+    { name: "Chennai", path: "/Chennai" },
   ];
 
   return (

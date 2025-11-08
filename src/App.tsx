@@ -22,6 +22,9 @@ import HyderabadConstruction from "./components/Hyderbad";
 import BangaloreConstruction from "./components/Bengalore";
 import HowItWorks from "./pages/Howitworks";
 import CommercialPage from "./pages/CommercialPage";
+import ChennaiConstruction from "./components/Chennai";
+import ProddaturConstruction from "./components/Proddatur";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -47,6 +50,9 @@ const App = () => (
           <Route path="/Bangalore" element={<BangaloreConstruction />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/commercialPage" element={<CommercialPage />} />
+          <Route path="/Chennai" element={<ChennaiConstruction />} />
+          <Route path="/Proddatur" element={<ProddaturConstruction />} />
+
 
           {/* NotFound should always be the LAST route */}
           <Route path="*" element={<NotFound />} />

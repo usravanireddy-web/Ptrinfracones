@@ -4,6 +4,7 @@ import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 import how1 from "@/assets/how1.png";
 import how2 from "@/assets/how2.png";
 import how3 from "@/assets/how3.png";
@@ -80,8 +81,8 @@ const HowItWorks: React.FC = () => {
             transition={{ duration: 0.9, delay: 0.3 }}
             className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
           >
-            From concept to completion — a transparent journey to your dream home.
-            <p>Plan → Build → Track → Settle in</p>
+            From concept to completion — a transparent journey to your dream home.  
+            <p className="text-[#FACC15] font-semibold">Plan → Build → Track → Settle In</p>
           </motion.p>
         </div>
       </section>
@@ -90,12 +91,12 @@ const HowItWorks: React.FC = () => {
       <section className="relative bg-white py-20 overflow-hidden">
         <div ref={ref} className="relative max-w-5xl mx-auto px-6">
           {/* Dotted Line */}
-          <div className="absolute left-[2.5rem] top-0 bottom-0 border-l-4 border-dotted border-orange-300"></div>
+          <div className="absolute left-[2.5rem] top-0 bottom-0 border-l-4 border-dotted border-[#93C5FD]"></div>
 
           {/* Animated Progress Line */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-[2.5rem] top-0 border-l-4 border-orange-500 rounded-full origin-top"
+            className="absolute left-[2.5rem] top-0 border-l-4 border-[#0369A1] rounded-full origin-top"
           ></motion.div>
 
           {/* Steps */}
@@ -111,11 +112,11 @@ const HowItWorks: React.FC = () => {
               {/* Step Circle */}
               <motion.div
                 animate={{
-                  scale: [1, 1.2, 1],
+                  scale: [1, 1.15, 1],
                   boxShadow: [
-                    "0 0 0px rgba(249,115,22,0)",
-                    "0 0 20px rgba(249,115,22,0.9)",
-                    "0 0 0px rgba(249,115,22,0)",
+                    "0 0 0px rgba(3,105,161,0)",
+                    "0 0 18px rgba(3,105,161,0.8)",
+                    "0 0 0px rgba(3,105,161,0)",
                   ],
                 }}
                 transition={{
@@ -124,7 +125,7 @@ const HowItWorks: React.FC = () => {
                   ease: "easeInOut",
                   delay: i * 0.4,
                 }}
-                className="relative z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white border-4 border-orange-500 text-orange-500 font-semibold text-sm"
+                className="relative z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white border-4 border-[#0369A1] text-[#0369A1] font-semibold text-sm"
               >
                 {(i + 1).toString().padStart(2, "0")}
               </motion.div>
@@ -135,7 +136,7 @@ const HowItWorks: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="flex-1 bg-white shadow-lg rounded-xl p-6 border border-gray-100 hover:shadow-2xl transition-all"
+                className="flex-1 bg-[#F8FAFC] shadow-lg rounded-xl p-6 border border-gray-100 hover:shadow-2xl transition-all"
               >
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   <img
@@ -144,15 +145,13 @@ const HowItWorks: React.FC = () => {
                     className="w-full md:w-1/3 rounded-lg h-[180px] object-contain"
                   />
                   <div className="w-full md:w-2/3">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-2xl font-semibold text-[#0369A1] mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      {step.desc}
-                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-3">{step.desc}</p>
                     {step.btn && (
                       <Link to="/projects">
-                        <button className="px-6 py-2 bg-orange-500 text-white font-medium rounded-md hover:bg-orange-600 transition">
+                        <button className="px-6 py-2 bg-[#FACC15] text-[#0F172A] font-semibold rounded-md hover:bg-[#FDE047] transition">
                           {step.btn}
                         </button>
                       </Link>
@@ -170,18 +169,18 @@ const HowItWorks: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="relative bg-orange-500 text-white text-center py-4 rounded-md font-semibold shadow-lg mt-10 hover:bg-orange-600 transition"
+              className="relative bg-[#0369A1] text-white text-center py-4 rounded-md font-semibold shadow-lg mt-10 hover:bg-[#025986] transition"
             >
-              Building Your Dream Home Starts Here 🚧
+              Building Your Dream Home Starts Here 🏗️
             </motion.div>
           </Link>
         </div>
       </section>
 
       {/* ===== TRACK PROGRESS SECTION ===== */}
-      <section className="bg-gray-50 py-20 px-6 md:px-16">
+      <section className="bg-gradient-to-b from-[#E0F2FE] via-white to-[#FFFDE7] py-20 px-6 md:px-16">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-          {/* Left Content - now aligned with image top */}
+          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -189,23 +188,23 @@ const HowItWorks: React.FC = () => {
             viewport={{ once: true }}
             className="self-start"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0369A1] mb-4">
               Stay in Control, Effortlessly.
             </h2>
-            <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-              Manage your entire construction journey with clarity and confidence. 
-              Our advanced platform keeps you informed, connected, and in control every step of the way.
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+              Manage your construction project with clarity and confidence.
+              Our smart tracking platform keeps you updated, connected, and stress-free — every step of the way.
             </p>
 
             <ul className="space-y-4">
               {[
                 "Access live construction photos, site reports, and timeline updates in real time.",
-                "Monitor spending, progress, and material selections through one seamless dashboard.",
-                "Communicate instantly with your project team — ensuring decisions are quick and transparent.",
+                "Monitor spending, progress, and material usage through one unified dashboard.",
+                "Communicate directly with your project team to ensure fast, transparent decision-making.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="text-orange-500 mt-1 w-5 h-5 flex-shrink-0" />
-                  <span className="text-gray-700">{item}</span>
+                  <CheckCircle className="text-[#FACC15] mt-1 w-5 h-5 flex-shrink-0" />
+                  <span className="text-gray-800">{item}</span>
                 </li>
               ))}
             </ul>
@@ -228,13 +227,12 @@ const HowItWorks: React.FC = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="w-[95%] md:w-[95%] lg:w-[90%] rounded-xl shadow-2xl"
+              className="w-[95%] md:w-[90%] lg:w-[85%] rounded-xl shadow-2xl border-4 border-[#FACC15]"
             />
           </motion.div>
         </div>
       </section>
 
-      
     </>
   );
 };

@@ -23,7 +23,6 @@ const ConstructionPackages = () => {
     tag?: string;
   };
 
-  // Regular Homes Data
   const homes: ConstructionPackage[] = [
     {
       name: "Basic",
@@ -36,7 +35,6 @@ const ConstructionPackages = () => {
         "Tractor Emulsion finish",
         "Essential kitchen & bathroom fittings",
       ],
-      
     },
     {
       name: "Classic",
@@ -50,7 +48,6 @@ const ConstructionPackages = () => {
         "Tractor Shyne Emulsion finish",
         "Stylish kitchen & bathroom",
       ],
-     
     },
     {
       name: "Premium",
@@ -63,7 +60,6 @@ const ConstructionPackages = () => {
         "Apcolite Premium finish",
         "Quality kitchen & bathroom",
       ],
-      
     },
     {
       name: "Royale",
@@ -76,11 +72,9 @@ const ConstructionPackages = () => {
         "Apex Ultima Exterior finish",
         "Lavish Fittings for kitchen & bathroom",
       ],
-     
     },
   ];
 
-  // Luxury Homes Data (added full details)
   const luxuryHomes: ConstructionPackage[] = [
     {
       name: "Freesia",
@@ -93,7 +87,6 @@ const ConstructionPackages = () => {
         "Premium bathroom brands like Kohler/Grohe",
         "Soundproofed UPVC/wood windows",
       ],
-     
     },
     {
       name: "Dahlia",
@@ -106,7 +99,6 @@ const ConstructionPackages = () => {
         "Premium bathroom brands like Kohler/Grohe",
         "Soundproofed UPVC/wood windows with mesh shutters",
       ],
-     
     },
     {
       name: "Magnolia",
@@ -119,15 +111,12 @@ const ConstructionPackages = () => {
         "Jacuzzi with luxurious sanitary fittings of AS",
         "Double-glazed windows, sound + weather proof",
       ],
-    
     },
   ];
 
-  
-
   return (
     <div className="p-6 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">
+      <h2 className="text-2xl font-bold mb-4 text-[#0369A1]">
         Construction Packages in {location}
       </h2>
 
@@ -136,7 +125,7 @@ const ConstructionPackages = () => {
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500"
+          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0369A1]"
         >
           <option>Bangaluru</option>
           <option>Hyderabad</option>
@@ -147,7 +136,7 @@ const ConstructionPackages = () => {
         <select
           value={district}
           onChange={(e) => setDistrict(e.target.value)}
-          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500"
+          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0369A1]"
         >
           <option disabled>Select AP District</option>
           {apDistricts.map((dist) => (
@@ -160,8 +149,8 @@ const ConstructionPackages = () => {
             onClick={() => setActiveTab("Homes")}
             className={`px-4 py-2 ${
               activeTab === "Homes"
-                ? "bg-orange-500 text-white"
-                : "bg-white text-gray-700"
+                ? "bg-[#0369A1] text-white"
+                : "bg-white text-gray-700 hover:bg-[#E0F2FE]"
             }`}
           >
             Homes
@@ -170,8 +159,8 @@ const ConstructionPackages = () => {
             onClick={() => setActiveTab("Luxury Homes")}
             className={`px-4 py-2 ${
               activeTab === "Luxury Homes"
-                ? "bg-orange-500 text-white"
-                : "bg-white text-gray-700"
+                ? "bg-[#0369A1] text-white"
+                : "bg-white text-gray-700 hover:bg-[#E0F2FE]"
             }`}
           >
             Luxury Homes
@@ -191,26 +180,29 @@ const ConstructionPackages = () => {
             className="relative border rounded-2xl shadow-md p-6 hover:shadow-lg transition bg-white"
           >
             {pkg.tag && (
-              <span className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+              <span className="absolute top-3 right-3 bg-[#FACC15] text-[#0F172A] text-xs font-semibold px-2 py-1 rounded-full">
                 {pkg.tag}
               </span>
             )}
 
-            <h3 className="font-semibold text-lg mb-1">{pkg.name}</h3>
-            <p className="text-orange-600 font-bold mb-2">
-              {pkg.price} <span className="text-gray-600 text-sm">per sqft</span>
+            <h3 className="font-semibold text-lg mb-1 text-[#0369A1]">
+              {pkg.name}
+            </h3>
+            <p className="text-[#FACC15] font-bold mb-2">
+              {pkg.price}{" "}
+              <span className="text-gray-600 text-sm">per sqft</span>
             </p>
             <p className="text-sm text-gray-600 mb-4 min-h-[60px]">{pkg.desc}</p>
 
             {pkg.highlights && (
               <>
-                <h4 className="font-semibold text-sm mb-2 text-gray-800">
+                <h4 className="font-semibold text-sm mb-2 text-[#0369A1]">
                   Highlights
                 </h4>
                 <ul className="text-sm text-gray-600 mb-4 space-y-1">
                   {pkg.highlights.map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <CheckCircle2 className="text-green-500 w-4 h-4 mt-0.5" />
+                      <CheckCircle2 className="text-[#FACC15] w-4 h-4 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -218,21 +210,23 @@ const ConstructionPackages = () => {
               </>
             )}
 
-           
-
             <div className="mt-4 flex gap-2">
               <button
-                onClick={() => navigate('/compare')}
-                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-3 py-1 rounded-md text-sm transition"
+                onClick={() => navigate("/compare")}
+                className="border border-[#0369A1] text-[#0369A1] hover:bg-[#0369A1] hover:text-white px-3 py-1 rounded-md text-sm transition"
               >
                 Learn More
               </button>
-             
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg-[#FACC15] text-[#0F172A] hover:bg-[#FDE047] px-3 py-1 rounded-md text-sm font-semibold transition"
+              >
+                Get Quote
+              </button>
             </div>
           </div>
         ))}
       </div>
-
     </div>
   );
 };

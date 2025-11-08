@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import hyd from "@/assets/hyd.jpeg"; // Hero Image
+import hyd from "@/assets/hyd.jpeg";
 import Home1 from "@/assets/Home1.jpg";
 import banner from "@/assets/banner.png";
 import customer1 from "@/assets/customer1.png";
@@ -20,6 +21,7 @@ import how6 from "@/assets/how6.png";
 
 const HyderabadConstruction: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,9 +60,30 @@ const HyderabadConstruction: React.FC = () => {
   ];
 
   const customers = [
-    { name: "Naroju Niharika", img: customer1, year: "2024", code: "CRN272560" },
-    { name: "M Venkat Reddy", img: customer2, year: "2023", code: "CRN157615" },
-    { name: "Akhila Kumaran", img: customer3, year: "2021", code: "CRN670856" },
+    {
+      name: "Naroju Niharika",
+      img: customer1,
+      year: "2024",
+      code: "CRN272560",
+      feedback:
+        "The PTR Infracons team turned our dream home into reality with amazing quality and on-time completion!",
+    },
+    {
+      name: "M Venkat Reddy",
+      img: customer2,
+      year: "2023",
+      code: "CRN157615",
+      feedback:
+        "Professional, transparent, and trustworthy — they made our construction experience completely stress-free.",
+    },
+    {
+      name: "Akhila Kumaran",
+      img: customer3,
+      year: "2021",
+      code: "CRN670856",
+      feedback:
+        "Their design-to-delivery process is smooth and efficient. I’d highly recommend PTR Infracons to anyone!",
+    },
   ];
 
   const projects = [
@@ -80,7 +103,6 @@ const HyderabadConstruction: React.FC = () => {
 
   return (
     <div className="bg-white text-gray-900">
-      {/* NAVBAR */}
       <Navbar />
 
       {/* ---------- HERO SECTION ---------- */}
@@ -93,13 +115,13 @@ const HyderabadConstruction: React.FC = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-wide drop-shadow-lg mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wide drop-shadow-lg mb-6">
             Build Your Dream Home in Hyderabad
           </h1>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
             Partner with <span className="font-semibold text-yellow-400">PTR Infracons</span> —
-            India’s most trusted tech-enabled construction company.
-            From modern villas to commercial projects, we turn your vision into reality.
+            India’s most trusted tech-enabled construction company. From modern villas to commercial
+            projects, we turn your vision into reality.
           </p>
         </div>
       </section>
@@ -110,7 +132,8 @@ const HyderabadConstruction: React.FC = () => {
           Home Construction Services in Hyderabad
         </h2>
         <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-          We deliver top-notch home and commercial construction solutions with precision, quality, and transparency.
+          We deliver top-notch home and commercial construction solutions with precision, quality,
+          and transparency.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, i) => (
@@ -147,28 +170,42 @@ const HyderabadConstruction: React.FC = () => {
         </div>
       </section>
 
-      {/* ---------- HAPPY CUSTOMERS ---------- */}
-      <section className="max-w-6xl mx-auto px-6 py-16 fade-section">
-        <h2 className="text-2xl font-semibold text-center mb-6">Our Happy Customers</h2>
-        <p className="text-center text-gray-500 mb-8">Trusted by 10,000+ happy homeowners</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {customers.map((cust, i) => (
-            <div
-              key={i}
-              className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-            >
-              <img
-                src={cust.img}
-                alt={cust.name}
-                className="w-full h-[350px] object-contain bg-gray-100"
-              />
-              <div className="p-4 text-center">
-                <h4 className="font-semibold text-lg">{cust.name}</h4>
-                <p className="text-gray-500 text-sm">{cust.code}</p>
-                <p className="text-gray-400 text-xs mt-1">{cust.year}</p>
+      {/* ---------- HAPPY CUSTOMERS (Redesigned) ---------- */}
+      <section className="relative bg-gradient-to-b from-[#FFF9C4] via-[#FFFDE7] to-white py-20 fade-section">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-[#0369A1] mb-3">
+            Our Happy Customers
+          </h2>
+          <p className="text-gray-700 mb-10 max-w-2xl mx-auto">
+            Over <span className="text-yellow-600 font-semibold">10,000+</span> homeowners have built
+            their dream homes with us. Here’s what they have to say about their journey with{" "}
+            <span className="font-semibold text-[#0369A1]">PTR Infracons</span>.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {customers.map((cust, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 border border-gray-100 hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-yellow-400 shadow-md mb-4">
+                    <img
+                      src={cust.img}
+                      alt={cust.name}
+                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <h4 className="font-semibold text-lg text-[#0369A1]">{cust.name}</h4>
+                  <p className="text-sm text-gray-500">{cust.code}</p>
+                  <p className="text-xs text-gray-400 mb-4">{cust.year}</p>
+                  <p className="text-gray-700 text-sm italic leading-relaxed">
+                    “{cust.feedback}”
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -197,8 +234,11 @@ const HyderabadConstruction: React.FC = () => {
         </div>
 
         <div className="text-center mt-10">
-          <button className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-full shadow-md transition">
-            View 10+ more projects
+          <button
+            onClick={() => navigate("/projects")}
+            className="px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-full shadow-md transition transform hover:scale-105"
+          >
+            View 10+ More Projects →
           </button>
         </div>
       </section>

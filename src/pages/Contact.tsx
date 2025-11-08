@@ -12,20 +12,9 @@ const Contact = () => {
       address: "JaiHind, Enclave, Madhapur, Hyderabad - 500081",
       phone: "+91 93980 38426",
       email: "ptrinfracons@gmail.com",
+      mapLink: "https://www.google.com/maps?q=JaiHind+Enclave,+Madhapur,+Hyderabad",
     },
-    // {
-    //   city: "Bangalore",
-    //   address: "456 MG Road, Ashok Nagar, Bangalore - 560001",
-    //   phone: "+91 80 8765 4321",
-    //   email: "bangalore@ptrinfracons.com",
-    // },
-    // {
-    //   city: "Chennai",
-    //   address: "789 Anna Salai, Nungambakkam, Chennai - 600034",
-    //   phone: "+91 44 9876 5432",
-    //   email: "chennai@ptrinfracons.com",
-    // },
-  ];
+  ]
 
   return (
     <div className="min-h-screen">
@@ -34,11 +23,11 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-r from-primary/10 to-secondary/10">
         <div className="container px-4">
-          <div className="max-w-1xl animate-fade-in">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-center">
+          <div className="max-w-2xl mx-auto text-center animate-fade-in">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
               Get in Touch
             </h1>
-            <p className="text-lg text-muted-foreground text-center">
+            <p className="text-lg text-muted-foreground">
               Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
@@ -111,57 +100,75 @@ const Contact = () => {
                   Contact Information
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <a
+                    href="tel:+917207878089"
+                    className="flex items-start space-x-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold mb-1">Phone</p>
+                      <p className="font-semibold mb-1 text-foreground group-hover:text-primary transition">
+                        Phone
+                      </p>
                       <p className="text-muted-foreground">+91 7207878089</p>
                       <p className="text-muted-foreground">+91 40 8765 4321</p>
                     </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  </a>
+
+                  <a
+                    href="mailto:ptrinfracons@gmail.com"
+                    className="flex items-start space-x-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold mb-1">Email</p>
+                      <p className="font-semibold mb-1 text-foreground group-hover:text-primary transition">
+                        Email
+                      </p>
                       <p className="text-muted-foreground">ptrinfracons@gmail.com</p>
-                      <p className="text-muted-foreground">support@ptrinfracons.com</p>
                     </div>
-                  </div>
+                  </a>
+
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <p className="font-semibold mb-1">Business Hours</p>
-                      <p className="text-muted-foreground">Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                      <p className="text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
                       <p className="text-muted-foreground">Sunday: 10:00 AM - 5:00 PM</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="card-gradient rounded-2xl p-8 shadow-lg">
+              <a
+                href="https://www.google.com/maps?q=JaiHind+Enclave,+Madhapur,+Hyderabad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block card-gradient rounded-2xl p-8 shadow-lg group transition hover:shadow-xl"
+              >
                 <h3 className="font-heading text-xl font-bold mb-6">
                   Visit Our Site Office
                 </h3>
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold mb-1">Head Office</p>
+                    <p className="font-semibold mb-1 text-foreground group-hover:text-primary transition">
+                      Head Office
+                    </p>
                     <p className="text-muted-foreground">
-                     JaiHind, Enclave, Madhapur,<br />
+                      JaiHind, Enclave, Madhapur,<br />
                       Hyderabad - 500081,<br />
                       Telangana, India
                     </p>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -177,24 +184,35 @@ const Contact = () => {
             {offices.map((office, index) => (
               <div
                 key={index}
-                className="card-gradient rounded-xl p-6 shadow-lg hover-lift animate-fade-in"
+                className="card-gradient rounded-xl p-6 shadow-lg hover-lift animate-fade-in transition hover:shadow-xl"
               >
                 <h3 className="font-heading text-xl font-bold mb-4 text-primary">
                   {office.city}
                 </h3>
                 <div className="space-y-3 text-sm">
-                  <div className="flex items-start">
+                  <a
+                    href={office.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start hover:text-primary transition"
+                  >
                     <MapPin className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground">{office.address}</p>
-                  </div>
-                  <div className="flex items-center">
+                  </a>
+                  <a
+                    href={`tel:${office.phone}`}
+                    className="flex items-center hover:text-primary transition"
+                  >
                     <Phone className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0" />
                     <p className="text-muted-foreground">{office.phone}</p>
-                  </div>
-                  <div className="flex items-center">
+                  </a>
+                  <a
+                    href={`mailto:${office.email}`}
+                    className="flex items-center hover:text-primary transition"
+                  >
                     <Mail className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0" />
                     <p className="text-muted-foreground">{office.email}</p>
-                  </div>
+                  </a>
                 </div>
               </div>
             ))}
@@ -215,6 +233,7 @@ const Contact = () => {
           title="Office Location"
         />
       </section>
+
     </div>
   );
 };
