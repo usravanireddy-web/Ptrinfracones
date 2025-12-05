@@ -23,6 +23,7 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
     { name: "How It Works", path: "/how-it-works" },
     { name: "CommercialPage", path: "/commercialPage" },
+    
   ];
 
   const locationOptions = [
@@ -42,7 +43,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* LEFT SECTION: Logo + Brand */}
+          {/* Logo */}
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-2">
               <img
@@ -56,9 +57,9 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* DESKTOP NAVIGATION */}
+          {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center space-x-10">
-            {/* Locations Dropdown */}
+            {/* Locations dropdown */}
             <div
               className="relative group"
               onMouseEnter={() => setIsLocationOpen(true)}
@@ -120,10 +121,10 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* ===== MOBILE NAVIGATION ===== */}
+        {/* MOBILE NAV */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4 bg-[#1a1a1a]/95 rounded-lg shadow-lg px-4 mt-2">
-            {/* Move Locations Below Logo for Clarity */}
+            {/* Locations */}
             <div className="border-b border-white/10 pb-2">
               <div
                 className="flex justify-between items-center text-gray-300 py-2 cursor-pointer hover:text-[#FFD700]"
@@ -153,7 +154,7 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* Navigation Links */}
+            {/* Links */}
             <div className="space-y-2">
               {navLinks.map((link) => (
                 <Link
@@ -171,7 +172,6 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Enquire Button */}
             <Button
               variant="secondary"
               size="sm"

@@ -23,7 +23,7 @@ import {
 
 import proddaturHero from "@/assets/poddhero.png";
 import modernHome from "@/assets/modernhome.png";
-import classicHome from "@/assets/classichome.png";
+import classicHome from "@/assets/Home1.jpg";
 import commercial from "@/assets/commercial.png";
 import customer1 from "@/assets/customer1.png";
 import customer2 from "@/assets/customer2.png";
@@ -41,7 +41,7 @@ const ProddaturConstruction: React.FC = () => {
     },
     {
       icon: Users,
-      title: "1000+ Happy Clients",
+      title: "5000+ Happy Clients",
       desc: "From cozy homes to modern offices, we’ve earned the trust of countless families and businesses.",
     },
     {

@@ -9,7 +9,7 @@ import {
   Mail,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import logo from "@/assets/logoimg.png"; // adjust path if needed
+import logo from "@/assets/logoimg.png";
 
 const Footer = () => {
   return (
@@ -162,27 +162,33 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* ===== Newsletter ===== */}
+        {/* ===== Newsletter (merged like your screenshot) ===== */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Newsletter</h3>
           <p className="text-gray-400 mb-3">
             Subscribe to get updates on new projects
           </p>
+
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex w-full max-w-sm bg-[#1C273C] border border-gray-700 rounded-lg overflow-hidden"
+            className="w-full max-w-sm"
           >
-            <input
-              type="email"
-              placeholder="Your email"
-              className="flex-1 px-4 py-3 bg-transparent text-gray-300 text-sm focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-1 py-3 transition-all whitespace-nowrap"
-            >
-              Subscribe
-            </button>
+            {/* Outer pill wrapper controls radius + border */}
+            <div className="flex w-full rounded-2xl overflow-hidden border border-[#334155] bg-[#111827]">
+              {/* Left: input area */}
+              <input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 px-4 py-3 bg-transparent text-sm text-gray-200 placeholder:text-gray-400 focus:outline-none border-none"
+              />
+              {/* Right: yellow block button */}
+              <button
+                type="submit"
+                className="px-6 py-3 bg-[#FACC15] text-black text-sm font-semibold border-none"
+              >
+                Subscribe
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ThankYouPage from "./components/ThankYouPage";
 
 import Index from "./pages/Index";
 import Projects from "./pages/Projects";
@@ -24,7 +25,7 @@ import HowItWorks from "./pages/Howitworks";
 import CommercialPage from "./pages/CommercialPage";
 import ChennaiConstruction from "./components/Chennai";
 import ProddaturConstruction from "./components/Proddatur";
-
+import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,23 +39,38 @@ const App = () => (
         <ScrollToTop />
         <Navbar />
         <Routes>
+          {/* ✅ Default home page */}
           <Route path="/" element={<Index />} />
+
+          {/* (Optional) Home alias */}
+          <Route path="/home" element={<Index />} />
+
+          {/* Landing page on its own URL */}
+          <Route path="/landingpage" element={<LandingPage />} />
+
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+
           <Route path="/compare" element={<ComparePackages />} />
           <Route path="/compare/:id" element={<ComparePackageDetails />} />
+
           <Route path="/enquire" element={<Enquire />} />
+
           <Route path="/Hyderabad" element={<HyderabadConstruction />} />
           <Route path="/Bangalore" element={<BangaloreConstruction />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/commercialPage" element={<CommercialPage />} />
           <Route path="/Chennai" element={<ChennaiConstruction />} />
           <Route path="/Proddatur" element={<ProddaturConstruction />} />
 
+          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/commercialPage" element={<CommercialPage />} />
 
-          {/* NotFound should always be the LAST route */}
+          {/* ✅ Match navigate('/thank-you') from LandingPage */}
+          <Route path="/thankyou" element={<ThankYouPage />} />
+
+          {/* 404 – keep last */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

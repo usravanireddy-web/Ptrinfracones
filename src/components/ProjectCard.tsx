@@ -42,7 +42,6 @@ const ProjectCard = ({ id, image, title, location, priceRange, units }: ProjectC
 
         <div className="flex items-center justify-between mb-4">
           <div>
-            <p className="text-xs text-muted-foreground">Starting from</p>
             <p className="font-heading text-xl font-bold text-secondary">{priceRange}</p>
           </div>
         </div>

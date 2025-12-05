@@ -6,12 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { projects } from "@/data/projects";
 import { MapPin, Home, Calendar, Download, Check } from "lucide-react";
-import { useState } from "react";
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find((p) => p.id === Number(id));
-  const [activeImage, setActiveImage] = useState(0);
 
   if (!project) {
     return (
@@ -26,37 +24,19 @@ const ProjectDetail = () => {
     );
   }
 
-  // Mock multiple images (in real app, would come from data)
-  const images = [project.image, project.image, project.image];
-
   return (
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Image Gallery */}
+      {/* Single Image Only */}
       <section className="pt-24">
         <div className="container px-4">
           <div className="mb-8">
             <img
-              src={images[activeImage]}
+              src={project.image}
               alt={project.title}
               className="w-full h-[500px] object-cover rounded-2xl shadow-lg"
             />
-          </div>
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            {images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`${project.title} ${index + 1}`}
-                className={`h-32 w-full object-cover rounded-lg cursor-pointer transition-all ${
-                  activeImage === index
-                    ? "ring-4 ring-primary"
-                    : "opacity-70 hover:opacity-100"
-                }`}
-                onClick={() => setActiveImage(index)}
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -166,21 +146,10 @@ const ProjectDetail = () => {
                   Get in Touch
                 </h3>
                 <form className="space-y-4">
-                  <div>
-                    <Input placeholder="Your Name" />
-                  </div>
-                  <div>
-                    <Input type="email" placeholder="Email Address" />
-                  </div>
-                  <div>
-                    <Input type="tel" placeholder="Phone Number" />
-                  </div>
-                  <div>
-                    <Textarea
-                      placeholder="Your Message"
-                      className="min-h-[120px]"
-                    />
-                  </div>
+                  <Input placeholder="Your Name" />
+                  <Input type="email" placeholder="Email Address" />
+                  <Input type="tel" placeholder="Phone Number" />
+                  <Textarea placeholder="Your Message" className="min-h-[120px]" />
                   <Button variant="secondary" className="w-full" size="lg">
                     Submit Enquiry
                   </Button>
@@ -193,6 +162,7 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

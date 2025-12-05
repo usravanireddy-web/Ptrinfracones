@@ -4,17 +4,44 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-const Contact = () => {
+const Contact: React.FC = () => {
+  const navigate = useNavigate();
+
   const offices = [
     {
       city: "Hyderabad",
       address: "JaiHind, Enclave, Madhapur, Hyderabad - 500081",
       phone: "+91 93980 38426",
       email: "ptrinfracons@gmail.com",
-      mapLink: "https://www.google.com/maps?q=JaiHind+Enclave,+Madhapur,+Hyderabad",
+      mapLink:
+        "https://www.google.com/maps?q=JaiHind+Enclave,+Madhapur,+Hyderabad",
     },
-  ]
+    {
+      city: "Vijayawada",
+      address:
+        "Plot No-25, Street No-4, Sector-4, Lotus Landmark, Vijayawada, Andhra Pradesh",
+      phone: "+91 93980 38426",
+      email: "ptrinfracons@gmail.com",
+      mapLink: "https://www.google.com/maps?q=Lotus+Landmark,+Vijayawada",
+    },
+    {
+      city: "Proddatur",
+      address:
+        "Flat No-601, Keerthi Residency, KVR Padma Nagar, Proddatur, Andhra Pradesh",
+      phone: "+91 93980 38426",
+      email: "ptrinfracons@gmail.com",
+      mapLink:
+        "https://www.google.com/maps/place/Keerthi+Residency,+KVR+Padma+Nagar,+Proddatur",
+    },
+  ];
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    // TODO: send data to backend if needed
+    navigate("/thank-you"); // 🔥 go to thank you page
+  };
 
   return (
     <div className="min-h-screen">
@@ -28,7 +55,8 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-lg text-muted-foreground">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have questions? We'd love to hear from you. Send us a message and
+              we'll respond as soon as possible.
             </p>
           </div>
         </div>
@@ -44,39 +72,56 @@ const Contact = () => {
                 <h2 className="font-heading text-2xl font-bold mb-6">
                   Send us a Message
                 </h2>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium mb-2 block">
                         First Name
                       </label>
-                      <Input placeholder="John" />
+                      <Input placeholder="John" name="firstName" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-2 block">
                         Last Name
                       </label>
-                      <Input placeholder="Doe" />
+                      <Input placeholder="Doe" name="lastName" required />
                     </div>
                   </div>
+
                   <div>
                     <label className="text-sm font-medium mb-2 block">
                       Email Address
                     </label>
-                    <Input type="email" placeholder="john@example.com" />
+                    <Input
+                      type="email"
+                      placeholder="john@example.com"
+                      name="email"
+                      required
+                    />
                   </div>
+
                   <div>
                     <label className="text-sm font-medium mb-2 block">
                       Phone Number
                     </label>
-                    <Input type="tel" placeholder="+91 98765 43210" />
+                    <Input
+                      type="tel"
+                      placeholder="+91 98765 43210"
+                      name="phone"
+                      required
+                    />
                   </div>
+
                   <div>
                     <label className="text-sm font-medium mb-2 block">
                       Subject
                     </label>
-                    <Input placeholder="How can we help you?" />
+                    <Input
+                      placeholder="How can we help you?"
+                      name="subject"
+                    />
                   </div>
+
                   <div>
                     <label className="text-sm font-medium mb-2 block">
                       Message
@@ -84,8 +129,11 @@ const Contact = () => {
                     <Textarea
                       placeholder="Tell us more about your requirements..."
                       className="min-h-[150px]"
+                      name="message"
+                      required
                     />
                   </div>
+
                   <Button variant="secondary" size="lg" className="w-full">
                     Submit Message
                   </Button>
@@ -104,7 +152,7 @@ const Contact = () => {
                     href="tel:+917207878089"
                     className="flex items-start space-x-4 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
@@ -112,7 +160,7 @@ const Contact = () => {
                         Phone
                       </p>
                       <p className="text-muted-foreground">+91 7207878089</p>
-                      <p className="text-muted-foreground">+91 40 8765 4321</p>
+                      <p className="text-muted-foreground">+91 9398038426</p>
                     </div>
                   </a>
 
@@ -120,25 +168,34 @@ const Contact = () => {
                     href="mailto:ptrinfracons@gmail.com"
                     className="flex items-start space-x-4 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <p className="font-semibold mb-1 text-foreground group-hover:text-primary transition">
                         Email
                       </p>
-                      <p className="text-muted-foreground">ptrinfracons@gmail.com</p>
+                      <p className="text-muted-foreground">
+                        ptrinfracons@gmail.com
+                      </p>
+                      <p className="text-muted-foreground">
+                        ptrinfracons.media@gmail.com
+                      </p>
                     </div>
                   </a>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                       <Clock className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <p className="font-semibold mb-1">Business Hours</p>
-                      <p className="text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                      <p className="text-muted-foreground">Sunday: 10:00 AM - 5:00 PM</p>
+                      <p className="text-muted-foreground">
+                        Mon - Sat: 9:00 AM - 7:00 PM
+                      </p>
+                      <p className="text-muted-foreground">
+                        Sunday: 10:00 AM - 5:00 PM
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -148,22 +205,24 @@ const Contact = () => {
                 href="https://www.google.com/maps?q=JaiHind+Enclave,+Madhapur,+Hyderabad"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block card-gradient rounded-2xl p-8 shadow-lg group transition hover:shadow-xl"
+                className="block card-gradient rounded-2xl p-8 shadow-lg transition hover:shadow-xl"
               >
                 <h3 className="font-heading text-xl font-bold mb-6">
                   Visit Our Site Office
                 </h3>
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold mb-1 text-foreground group-hover:text-primary transition">
+                    <p className="font-semibold mb-1 text-foreground">
                       Head Office
                     </p>
                     <p className="text-muted-foreground">
-                      JaiHind, Enclave, Madhapur,<br />
-                      Hyderabad - 500081,<br />
+                      JaiHind, Enclave, Madhapur,
+                      <br />
+                      Hyderabad - 500081,
+                      <br />
                       Telangana, India
                     </p>
                   </div>
@@ -180,15 +239,17 @@ const Contact = () => {
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in">
             Our Offices
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {offices.map((office, index) => (
               <div
                 key={index}
-                className="card-gradient rounded-xl p-6 shadow-lg hover-lift animate-fade-in transition hover:shadow-xl"
+                className="card-gradient rounded-xl p-6 shadow-lg hover-lift transition hover:shadow-xl animate-fade-in"
               >
                 <h3 className="font-heading text-xl font-bold mb-4 text-primary">
                   {office.city}
                 </h3>
+
                 <div className="space-y-3 text-sm">
                   <a
                     href={office.mapLink}
@@ -196,21 +257,23 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="flex items-start hover:text-primary transition"
                   >
-                    <MapPin className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0 mt-0.5" />
+                    <MapPin className="h-5 w-5 text-muted-foreground mr-2 mt-[2px]" />
                     <p className="text-muted-foreground">{office.address}</p>
                   </a>
+
                   <a
                     href={`tel:${office.phone}`}
                     className="flex items-center hover:text-primary transition"
                   >
-                    <Phone className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0" />
+                    <Phone className="h-5 w-5 text-muted-foreground mr-2" />
                     <p className="text-muted-foreground">{office.phone}</p>
                   </a>
+
                   <a
                     href={`mailto:${office.email}`}
                     className="flex items-center hover:text-primary transition"
                   >
-                    <Mail className="h-5 w-5 text-muted-foreground mr-2 flex-shrink-0" />
+                    <Mail className="h-5 w-5 text-muted-foreground mr-2" />
                     <p className="text-muted-foreground">{office.email}</p>
                   </a>
                 </div>
@@ -233,7 +296,6 @@ const Contact = () => {
           title="Office Location"
         />
       </section>
-
     </div>
   );
 };

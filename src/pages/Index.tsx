@@ -25,8 +25,8 @@ const Index = () => {
 
   const stats = [
     { value: "50+", label: "Projects Delivered" },
-    { value: "10K+", label: "Happy Families" },
-    { value: "25+", label: "Years of Trust" },
+    { value: "5K+", label: "Happy Families" },
+    { value: "16+", label: "Years of Trust" },
     { value: "15+", label: "Awards Won" },
   ];
 

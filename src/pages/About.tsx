@@ -4,12 +4,12 @@ import { Award, Users, Building2, Heart } from "lucide-react";
 
 const About = () => {
   const milestones = [
-    { year: "1999", event: "Company Founded" },
-    { year: "2005", event: "First Luxury Project Launched" },
-    { year: "2010", event: "10,000 Happy Families" },
-    { year: "2015", event: "Expansion to Multiple Cities" },
-    { year: "2020", event: "50+ Projects Delivered" },
-    { year: "2024", event: "25 Years of Excellence" },
+    { year: "2009", event: "Company Founded" },
+    { year: "2014", event: "First Luxury Project Launched" },
+    { year: "2018", event: "5000 Happy Families" },
+    { year: "2020", event: "Expansion to Multiple Cities" },
+    { year: "2022", event: "50+ Projects Delivered" },
+    { year: "2025", event: "16 Years of Excellence" },
   ];
 
   const values = [
@@ -51,7 +51,7 @@ const About = () => {
               Building Landmarks of Trust
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed">
-              For over 25 years, PTRinfraCons has been synonymous with quality, trust, and excellence in
+              For over 16 years, PTRinfraCons has been synonymous with quality, trust, and excellence in
               real estate development.
             </p>
           </div>
@@ -68,12 +68,12 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 1999, PTRinfraCons began with a simple vision: to create homes that families
+                  Founded in 2009, PTRinfraCons began with a simple vision: to create homes that families
                   would cherish for generations. What started as a small venture has grown into one of the
                   most trusted names in real estate.
                 </p>
                 <p>
-                  Over the years, we've delivered 50+ residential projects, housing over 10,000 happy
+                  Over the years, we've delivered 50+ residential projects, housing over 5000 happy
                   families. Our commitment to quality, transparency, and customer satisfaction has earned us
                   numerous awards and, more importantly, the trust of our customers.
                 </p>
@@ -174,8 +174,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };

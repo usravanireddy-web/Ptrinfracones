@@ -177,7 +177,7 @@ const HyderabadConstruction: React.FC = () => {
             Our Happy Customers
           </h2>
           <p className="text-gray-700 mb-10 max-w-2xl mx-auto">
-            Over <span className="text-yellow-600 font-semibold">10,000+</span> homeowners have built
+            Over <span className="text-yellow-600 font-semibold">5000+</span> homeowners have built
             their dream homes with us. Here’s what they have to say about their journey with{" "}
             <span className="font-semibold text-[#0369A1]">PTR Infracons</span>.
           </p>

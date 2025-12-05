@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CheckCircle2 } from "lucide-react"; // for icons
+import { CheckCircle2 } from "lucide-react";
 
-const ConstructionPackages = () => {
-  const [activeTab, setActiveTab] = useState("Homes");
-  const [location, setLocation] = useState("Hyderabad");
-  const [district, setDistrict] = useState("Select AP District");
+type ConstructionPackage = {
+  name: string;
+  price: string;
+  desc: string;
+  highlights: string[];
+  tag?: string;
+};
+
+const ConstructionPackages: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"Homes" | "Luxury Homes">("Homes");
+  const [location, setLocation] = useState("Proddatur");
   const navigate = useNavigate();
-
-  const apDistricts = [
-    "Anantapur", "Chittoor", "East Godavari", "Guntur",
-    "Krishna", "Kurnool", "Nellore", "Prakasam",
-    "Srikakulam", "Visakhapatnam", "Vizianagaram",
-    "West Godavari", "YSR Kadapa",
-  ];
-
-  type ConstructionPackage = {
-    name: string;
-    price: string;
-    desc: string;
-    highlights: string[];
-    tag?: string;
-  };
 
   const homes: ConstructionPackage[] = [
     {
@@ -77,7 +69,7 @@ const ConstructionPackages = () => {
 
   const luxuryHomes: ConstructionPackage[] = [
     {
-      name: "Freesia",
+      name: "Frisia",
       price: "₹4190",
       desc: "A top-tier luxury package with marble flooring, home automation ensuring earthquake resistant designs",
       highlights: [
@@ -89,7 +81,7 @@ const ConstructionPackages = () => {
       ],
     },
     {
-      name: "Dahlia",
+      name: "Cardinal",
       price: "₹5340",
       desc: "An ultra-luxury package with premium amenities like smart automation, elegant interiors, and Mitsubishi elevator.",
       highlights: [
@@ -101,7 +93,7 @@ const ConstructionPackages = () => {
       ],
     },
     {
-      name: "Magnolia",
+      name: "Oak",
       price: "₹6510",
       desc: "The pinnacle of opulence with indulgence features like private lap pool, advanced automation, and premium designer finishes.",
       highlights: [
@@ -114,6 +106,8 @@ const ConstructionPackages = () => {
     },
   ];
 
+  const packagesToShow = activeTab === "Homes" ? homes : luxuryHomes;
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-[#0369A1]">
@@ -122,32 +116,24 @@ const ConstructionPackages = () => {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-4 mb-8">
+        {/* LOCATION DROPDOWN - smaller width */}
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0369A1]"
+          className="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#0369A1] focus:outline-none w-40"
         >
-          <option>Bangaluru</option>
-          <option>Hyderabad</option>
-          <option>Vijayawada</option>
-          <option>Visakhapatnam</option>
+          <option value="Proddatur">Proddatur</option>
+          <option value="Bangaluru">Bangaluru</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Vijayawada">Vijayawada</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
         </select>
 
-        <select
-          value={district}
-          onChange={(e) => setDistrict(e.target.value)}
-          className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0369A1]"
-        >
-          <option disabled>Select AP District</option>
-          {apDistricts.map((dist) => (
-            <option key={dist}>{dist}</option>
-          ))}
-        </select>
-
+        {/* TABS */}
         <div className="flex gap-2 border rounded-lg overflow-hidden">
           <button
             onClick={() => setActiveTab("Homes")}
-            className={`px-4 py-2 ${
+            className={`px-4 py-2 text-sm ${
               activeTab === "Homes"
                 ? "bg-[#0369A1] text-white"
                 : "bg-white text-gray-700 hover:bg-[#E0F2FE]"
@@ -157,7 +143,7 @@ const ConstructionPackages = () => {
           </button>
           <button
             onClick={() => setActiveTab("Luxury Homes")}
-            className={`px-4 py-2 ${
+            className={`px-4 py-2 text-sm ${
               activeTab === "Luxury Homes"
                 ? "bg-[#0369A1] text-white"
                 : "bg-white text-gray-700 hover:bg-[#E0F2FE]"
@@ -174,7 +160,7 @@ const ConstructionPackages = () => {
           activeTab === "Homes" ? "md:grid-cols-4" : "md:grid-cols-3"
         } gap-6`}
       >
-        {(activeTab === "Homes" ? homes : luxuryHomes).map((pkg) => (
+        {packagesToShow.map((pkg) => (
           <div
             key={pkg.name}
             className="relative border rounded-2xl shadow-md p-6 hover:shadow-lg transition bg-white"
@@ -192,23 +178,21 @@ const ConstructionPackages = () => {
               {pkg.price}{" "}
               <span className="text-gray-600 text-sm">per sqft</span>
             </p>
-            <p className="text-sm text-gray-600 mb-4 min-h-[60px]">{pkg.desc}</p>
+            <p className="text-sm text-gray-600 mb-4 min-h-[60px]">
+              {pkg.desc}
+            </p>
 
-            {pkg.highlights && (
-              <>
-                <h4 className="font-semibold text-sm mb-2 text-[#0369A1]">
-                  Highlights
-                </h4>
-                <ul className="text-sm text-gray-600 mb-4 space-y-1">
-                  {pkg.highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <CheckCircle2 className="text-[#FACC15] w-4 h-4 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+            <h4 className="font-semibold text-sm mb-2 text-[#0369A1]">
+              Highlights
+            </h4>
+            <ul className="text-sm text-gray-600 mb-4 space-y-1">
+              {pkg.highlights.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 className="text-[#FACC15] w-4 h-4 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-4 flex gap-2">
               <button

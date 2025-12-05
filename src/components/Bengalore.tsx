@@ -30,7 +30,7 @@ const BangaloreConstruction: React.FC = () => {
 
   const highlights = [
     { icon: Building2, number: 450, title: "Projects Completed" },
-    { icon: Clock, number: 15, title: "Years of Excellence" },
+    { icon: Clock, number: 16, title: "Years of Excellence" },
     { icon: Users, number: 98, title: "Client Satisfaction %" },
     { icon: CheckCircle2, number: 120, title: "Ongoing Projects" },
   ];
